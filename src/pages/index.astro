@@ -1,20 +1,22 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Greeting from '../components/Greeting';
+
+const title = 'astro';
+const pageTitle = 'Home Page';
+
 ---
 
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type ="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content = {Astro.generator} >
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Astro start MyBolg</h1>
-  </body>
-</html>
+<BaseLayout title={title} pageTitle={pageTitle}>
+  <!-- 使用<slot />呼叫以下內容 -->
+  <h2>My awesome blog subtitle</h2>
+  <Greeting messages={["Hi", "Hello", "Howdy", "Hey there"]} />
+  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+</BaseLayout>
+
+
