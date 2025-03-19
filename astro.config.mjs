@@ -6,5 +6,9 @@ import preact from "@astrojs/preact";
 // https://astro.build/config
 export default defineConfig({
   site: "https://astro-myblog.netlify.app",
-  integrations: [preact()]
+  integrations: [preact()],
+
+  devToolbar: {
+    enabled: false
+  }
 });
